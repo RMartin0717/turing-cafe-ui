@@ -18,12 +18,16 @@ class Form extends Component {
 
   submitReservation = (event) => {
     event.preventDefault()
-    const newRes = {
-      id: Date.now(),
-      ...this.state
+    if (this.state.name && this.state.date && this.state.time && this.state.number) {
+      const newRes = {
+        id: Date.now(),
+        ...this.state
+      }
+      this.props.createReservation(newRes)
+      this.clearInputs()
+    } else {
+      return
     }
-    this.props.createReservation(newRes)
-    this.clearInputs()
   }
 
   clearInputs = () => {
