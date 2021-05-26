@@ -27,7 +27,7 @@ class Form extends Component {
 
   render() {
     return (
-      <form>
+      <form className='res-form'>
         <input
           type='text'
           placeholder='name'
