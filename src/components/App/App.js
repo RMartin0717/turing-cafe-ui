@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import AllReservations from '../AllReservations/AllReservations'
+import Form from '../Form/Form'
 import './App.css';
 import { fetchReservations } from '../../utilities/APICalls'
 

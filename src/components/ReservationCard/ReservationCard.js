@@ -1,17 +1,16 @@
 import React from 'react'
+import './ReservationCard.css'
 
 const ReservationCard = ({ id, name, date, time, number, cancelReservation }) => {
   return (
-    <article>
+    <article className='res-card'>
       <h3>{name}</h3>
       <p>{date}</p>
       <p>{time}</p>
       <p>{number}</p>
-      <button onClick={cancelReservation()}>Cancel</button>
+      <button onClick={this.cancelReservation()}>Cancel</button>
     </article>
   )
-  //needs to accept cancelReservation method as props and have it on a cancel button
-  //needs to accept all relevant data for reservations and display it
 }
 
 export default ReservationCard
