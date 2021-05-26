@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import AllReservations from '../AllReservations/AllReservations'
 import Form from '../Form/Form'
 import './App.css';
-import { fetchReservations, postReservation } from '../../utilities/APICalls'
+import { fetchReservations, postReservation, deleteReservation } from '../../utilities/APICalls'
 
 class App extends Component {
   constructor() {
@@ -18,7 +18,8 @@ class App extends Component {
   }
 
   cancelReservation = (id) => {
-    console.log('cancel reservation')
+    deleteReservation(id)
+      .then(data => this.setState({ reservations: data }))
   }
 
   componentDidMount() {
