@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import { fetchReservations } from '../../utilities/APICalls'
 
 class App extends Component {
   constructor(props) {
@@ -11,6 +12,11 @@ class App extends Component {
 
   cancelReservation = () => {
 
+  }
+
+  componentDidMount() {
+    fetchReservations()
+      .then(data => this.setState({ reservations: data }))
   }
 
   render() {
