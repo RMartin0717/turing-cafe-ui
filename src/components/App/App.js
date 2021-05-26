@@ -5,15 +5,14 @@ import './App.css';
 import { fetchReservations } from '../../utilities/APICalls'
 
 class App extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       reservations: []
     }
   }
 
   createReservation = (newReservation) => {
-    console.log('create reservation')
     this.setState({ reservations: [...this.state.reservations, newReservation] })
   }
 
