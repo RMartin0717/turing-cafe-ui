@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import AllReservations from '../AllReservations/AllReservations'
 import './App.css';
 import { fetchReservations } from '../../utilities/APICalls'
 
@@ -27,7 +28,7 @@ class App extends Component {
 
         </div>
         <div className='resy-container'>
-
+        <AllReservations reservationData={this.state.reservations} cancelReservation={this.cancelReservation} />
         </div>
       </div>
     )
