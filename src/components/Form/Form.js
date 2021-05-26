@@ -1,24 +1,63 @@
 import React, { Component } from 'react'
 import './Form.css'
 
-class From extends { Component } {
+class Form extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      //need state for each input field
+      name: '',
+      date: '',
+      time: '',
+      number: ''
     }
   }
 
-  handleChange = () => {
-    //update state
+  handleChange = (event) => {
+    this.setState({ [event.target.name]: event.target.value })
+  }
+
+  submitReservation = (event) => {
+    event.preventDefault()
+    const newRes = {
+      id: Date.now(),
+      ...this.state
+    }
+    this.props.createReservation(newRes)
   }
 
   render() {
     return (
-      //need input fields for name, date, time, number of guests
-      <input
-        onChange={(event) => this.handleChange(event)}
-      />
+      <form>
+        <input
+          type='text'
+          placeholder='name'
+          name='name'
+          value={this.state.name}
+          onChange={(event) => this.handleChange(event)}
+        />
+        <input
+          type='text'
+          placeholder='date'
+          name='date'
+          value={this.state.date}
+          onChange={(event) => this.handleChange(event)}
+        />
+        <input
+          type='text'
+          placeholder='time'
+          name='time'
+          value={this.state.time}
+          onChange={(event) => this.handleChange(event)}
+        />
+        <input
+          type='number'
+          placeholder='number of guests'
+          name='number'
+          value={this.state.number}
+          onChange={(event) => this.handleChange(event)}
+        />
+        <button onClick={() => this.submitReservation()}>Create Reservation</button>
+      </form>
     )
   }
 }

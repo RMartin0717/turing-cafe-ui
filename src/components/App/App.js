@@ -12,8 +12,13 @@ class App extends Component {
     }
   }
 
-  cancelReservation = () => {
+  createReservation = (newReservation) => {
+    console.log('create reservation')
+    this.setState({ reservations: [...this.state.reservations, newReservation] })
+  }
 
+  cancelReservation = (id) => {
+    console.log('cancel reservation')
   }
 
   componentDidMount() {
@@ -26,10 +31,10 @@ class App extends Component {
       <div className="App">
         <h1 className='app-title'>Turing Cafe Reservations</h1>
         <div className='resy-form'>
-
+          <Form createReservation={this.createReservation} />
         </div>
         <div className='resy-container'>
-        <AllReservations reservationData={this.state.reservations} cancelReservation={this.cancelReservation} />
+          <AllReservations reservationData={this.state.reservations} cancelReservation={this.cancelReservation} />
         </div>
       </div>
     )

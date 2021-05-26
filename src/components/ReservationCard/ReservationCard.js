@@ -8,7 +8,7 @@ const ReservationCard = ({ id, name, date, time, number, cancelReservation }) =>
       <p>{date}</p>
       <p>{time}</p>
       <p>{number}</p>
-      <button onClick={this.cancelReservation()}>Cancel</button>
+      <button onClick={() => cancelReservation(id)}>Cancel</button>
     </article>
   )
 }
